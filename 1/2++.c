@@ -8,7 +8,7 @@ int empty_lines = 0,
     comments    = 0;
 
 int  menu();			// works
-void is_empty_line(char[];	// works !1
+void is_empty_line(char[]);	// works !1
 int is_in_comment(int);		// new
 void operators_in_line(char[]);	// works !1
 int  is_c_file(char[]);		// works
