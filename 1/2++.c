@@ -26,7 +26,7 @@ int main() {
 	if(option == 1 || option == 3) write_to_file();
 	else write_on_screen();
 
-	printf("> Thank you for using my program!\n");
+	printf("> Thank you for using my program!\n\n");
 
 	return 0;
 }
@@ -66,8 +66,7 @@ void is_empty_line(char line[]) {
 }
 
 int is_in_comment(int flag) {
-	if(comments) return 1;
-	if(flag % 2 != 0) return 1;
+	if(comments || (flag % 2 != 0)) return 1;
 	return 0;
 }
 
@@ -87,7 +86,7 @@ void operators_in_line(char line[]) {
 				operators++;
 				break;
 			case '"':
-        if((i > 0) && (line[i-1] == '\\')) break;
+        			if((i > 0) && (line[i-1] == '\\')) break;
 				flag++;
 				break;
 			case '*':
@@ -95,9 +94,9 @@ void operators_in_line(char line[]) {
 				if((!is_in_comment(flag))) operators++;
 				break;
 			case '%':
-				if(!is_in_comment(flag)) i++;
+				if(!is_in_comment(flag)) {i++; operators++}
 				break;
-			case '=': case '<': case '>': case '!':
+			case '=': case '<': case '>': case '!': // doesn't work for <<= and >>=
 				i++;
 				if(!is_in_comment(flag))  operators++;
 				break;
@@ -166,7 +165,7 @@ void write_to_file() {
 	printf("> Write to file:\n");
 	printf("\t> Enter file name: ");
 	scanf(" %s", file_name);
-	printf("\t> WARNING: \"%s\" will be rewritten!\n"                                   // possible chech if exists open and close
+	printf("\t> WARNING: \"%s\" will be rewritten!\n"                                  
 	       "\t> Are you sure you want to continue? (y/n): ", file_name);
 
 	scanf("%c", &rewritefile);
