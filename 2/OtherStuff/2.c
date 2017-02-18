@@ -29,7 +29,7 @@ void initArray (int *arr) {
 
 void printArray (int arr []) {
 	for (i = 0; i < SIZE; i++) {
-		printf("%d\t",arr [i]);
+		printf ("%d\t",arr [i]);
 	}
 }
 
@@ -59,7 +59,7 @@ void binArray (int *arr) {
 void binPrintArray (int arr []) {
 	printf ("bin: ");
 	for (i = 0; i < SIZE; i++) {
-		printf("%d", (arr [i]?1:0));
+		printf ("%d", (arr [i]?1:0));
 	}
 	printf ("\n");
 }
