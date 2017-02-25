@@ -7,7 +7,7 @@ int main () {
         a += b;
         b = a - b;
         a -= b;
-    } 
+    } // swap a^=b^=a^=b;
     for (; ++ a < b;) {
         sum += a;
     }
