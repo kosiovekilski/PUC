@@ -9,7 +9,7 @@
 typedef struct {
     long id;
     char name [NAME_LEN];
-    char brand [BRAND_LEN];
+	char brand [BRAND_LEN];
     double price, weight;
     char address [ADDRESS_LEN];
 } Product;
@@ -35,24 +35,12 @@ void addProductToFile (FILE * fp, const Product p) {
         exit (-1);
     }
 
-    if (fwrite (& p.id, sizeof (int), 1, fp) != 1) {
-        perror (NULL);
-    }
-    if (fwrite (p.name, sizeof (char), NAME_LEN, fp) != NAME_LEN) {
-        perror (NULL);
-    }
-    if (fwrite (p.brand, sizeof (char), BRAND_LEN, fp) != BRAND_LEN) {
-        perror (NULL);
-    }
-    if (fwrite (& p.price, sizeof (double), 1, fp) != 1) {
-        perror (NULL);
-    }
-    if (fwrite (& p.weight, sizeof (double), 1, fp) != 1) {
-        perror (NULL);
-    }
-    if (fwrite (p.address, sizeof (char), ADDRESS_LEN, fp) != ADDRESS_LEN) {
-        perror (NULL);
-    }
+    fwrite (& p.id, sizeof (int), 1, fp);
+    fwrite (p.name, sizeof (char), NAME_LEN, fp);
+    fwrite (p.brand, sizeof (char), BRAND_LEN, fp);
+    fwrite (& p.price, sizeof (double), 1, fp);
+    fwrite (& p.weight, sizeof (double), 1, fp);
+    fwrite (p.address, sizeof (char), ADDRESS_LEN, fp);
 
     printf ("%s added in DB\n", p.name);
 
