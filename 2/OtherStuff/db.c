@@ -92,3 +92,8 @@ int main () {
     }
     return 0;
 }
+
+/*
+NOTE: fread && fwrite check
+*/
+
