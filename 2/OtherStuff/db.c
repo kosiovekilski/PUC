@@ -9,7 +9,7 @@
 typedef struct {
     long id;
     char name [NAME_LEN];
-	char brand [BRAND_LEN];
+    char brand [BRAND_LEN];
     double price, weight;
     char address [ADDRESS_LEN];
 } Product;
